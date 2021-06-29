@@ -1,18 +1,22 @@
 //@dart=2.9
-import 'dart:html';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'Feed.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MaterialApp(
     title: "Login",
-    home: MyApp(),
+    initialRoute: "/",
+    routes: {
+      "/": (context) => MyApp(),
+      "/feed": (context) => Feed(),
+    },
   ));
 }
 
@@ -65,7 +69,17 @@ class MyApp extends StatelessWidget {
               padding: const EdgeInsets.all(86.0),
               child: ElevatedButton(
                 onPressed: () {
-                  signInWithGoogle();
+                  // signInWithGoogle();
+                  // Navigator.pushNamed(context, "/feed");
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Feed();
+                      },
+                    ),
+                  );
                 },
                 child: Row(
                   children: [
@@ -73,7 +87,7 @@ class MyApp extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(Icons.account_box),
                     ),
-                    Text("Sgin in with Google"),
+                    Text("Sign in with Google"),
                   ],
                 ),
                 style: ButtonStyle(
