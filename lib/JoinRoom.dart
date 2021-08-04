@@ -22,7 +22,7 @@ class _JoinRoomState extends State<JoinRoom> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Room"),
+        title: Text("Join Room"),
         backgroundColor: Colors.teal,
       ),
       body: Center(

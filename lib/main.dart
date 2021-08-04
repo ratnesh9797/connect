@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
               padding: const EdgeInsets.all(86.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // signInWithGoogle();
+                  signInWithGoogle();
                   // Navigator.pushNamed(context, "/feed");
 
                   Navigator.push(

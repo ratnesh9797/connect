@@ -1,3 +1,4 @@
+import 'package:connect/MatchAnalysis.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -138,7 +139,7 @@ class _MatchState extends State<Match> {
               ),
             if (gameOver)
               Text(
-                "GameOver",
+                "Session Over",
                 style: TextStyle(
                   color: Colors.red,
                   fontWeight: FontWeight.bold,
@@ -151,7 +152,16 @@ class _MatchState extends State<Match> {
                   textColor: Colors.white,
                   color: Colors.teal,
                   child: Text("Session Analytics"),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return MatchAnalysis();
+                        },
+                      ),
+                    );
+                  },
                 ),
               )
           ],

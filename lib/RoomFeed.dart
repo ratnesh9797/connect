@@ -1,3 +1,6 @@
+import 'package:connect/MatchAnalysis.dart';
+import 'package:connect/anonymous.dart';
+import 'package:connect/quizAnalysis.dart';
 import 'package:flutter/material.dart';
 import 'Match.dart';
 
@@ -29,16 +32,6 @@ class _RoomFeedState extends State<RoomFeed> {
                   ),
                 ),
               ),
-              Card(
-                child: ListTile(
-                  title: Text("Anonymous QnA Interaction"),
-                  subtitle: Text("Type: QnA | 12:05am 12 May"),
-                  trailing: Icon(
-                    Icons.analytics,
-                    color: Colors.blueAccent,
-                  ),
-                ),
-              ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -60,7 +53,73 @@ class _RoomFeedState extends State<RoomFeed> {
                     ),
                   ),
                 ),
-              )
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return MatchAnalysis();
+                      },
+                    ),
+                  );
+                },
+                child: Card(
+                  child: ListTile(
+                    title: Text("Practice session"),
+                    subtitle: Text("Type: Drag n Drop | 11:05am 12 May"),
+                    trailing: Icon(
+                      Icons.analytics,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return QuizAnalysis();
+                      },
+                    ),
+                  );
+                },
+                child: Card(
+                  child: ListTile(
+                    title: Text("Class Quiz"),
+                    subtitle: Text("Type: Quiz | 1:05am 12 May"),
+                    trailing: Icon(
+                      Icons.analytics,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Anonymous();
+                      },
+                    ),
+                  );
+                },
+                child: Card(
+                  child: ListTile(
+                    title: Text("QnA Interaction (anonymous)"),
+                    subtitle: Text("Type: QnA | 12:05am 12 May"),
+                    trailing: Icon(
+                      Icons.analytics,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
